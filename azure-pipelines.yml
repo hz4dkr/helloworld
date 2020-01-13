@@ -16,4 +16,15 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+
+
+- task: SqlAzureDacpacDeployment@1
+  inputs:
+    AuthenticationType: 'server'
+    ServerName: 'ambersitko.database.windows.net'
+    DatabaseName: 'testing123'
+    SqlUsername: 'hz4dkr'
+    SqlPassword: 'Portland111!'
+    deployType: 'InlineSqlTask'
+    SqlInline: 'CREATE TABLE Persons (PersonID int)'
+    IpDetectionMethod: 'AutoDetect'
